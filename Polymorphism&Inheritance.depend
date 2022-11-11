@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1668168801 source:c:\users\Пользователь\onedrive\Рабочий стол\codeblocks\files\polymorphism&inheritance\main.cpp
+	<iostream>
+	"Figures.h"
+	"List.h"
+	"Queue.h"
+	"Stack.h"
+
+1666343514 source:c:\users\Пользователь\onedrive\Рабочий стол\codeblocks\files\polymorphism&inheritance\queue.cpp
+
+1666343502 source:c:\users\Пользователь\onedrive\Рабочий стол\codeblocks\files\polymorphism&inheritance\stack.cpp
+
+1666956466 c:\users\Пользователь\onedrive\Рабочий стол\codeblocks\files\polymorphism&inheritance\figures.h
+	<iostream>
+
+1668168031 c:\users\Пользователь\onedrive\Рабочий стол\codeblocks\files\polymorphism&inheritance\list.h
+
+1667027222 c:\users\Пользователь\onedrive\Рабочий стол\codeblocks\files\polymorphism&inheritance\queue.h
+	<iostream>
+	"List.h"
+
+1667033850 c:\users\Пользователь\onedrive\Рабочий стол\codeblocks\files\polymorphism&inheritance\stack.h
+	<iostream>
+	"List.h"
+
