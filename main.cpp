@@ -97,34 +97,6 @@ using namespace std;
 
 int main()
 {
-//    queue<double> Q;
-//    cin >> Q;
-//    cout << Q;
-//    queue<double> _Q = Q;
-//    cout << _Q;
-//    cin >> Q;
-//    cout << Q;
-//    cout << _Q;
-//
-//    stack<double> S;
-//    cin >> S >> S >> S >> S >> S;
-//    cout << S;
-//    stack<double> _S = S;
-//    cout << _S;
-
-
-//    rectangle<double> A (12,20);
-//    rectangle<double> B = A;
-//    circle<double> C (5);
-//    circle<double> D = C;
-//    ellipse<double> E (13, 5);
-//    ellipse<double> F = E;
-//    cout << A;
-//    cout << B;
-//    cout << C;
-//    cout << D;
-//    cout << E;
-//    cout << F;
 
     size_t p;
     cout << "Press 1 to pick the queue or 2 to pick the stack: ";
@@ -134,16 +106,6 @@ int main()
 
     if(p == 1)
     {
-//        size_t k;
-//        cout << "Press 1 for double-type queue, 2 for int-type queue";
-//        cin >> k;
-//        switch(k)
-//        {
-//        case 1:
-//            queue<double> q;
-//            break;
-//
-//        }
         queue<double> q;
 
 

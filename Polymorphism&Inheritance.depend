@@ -23,3 +23,27 @@
 	<iostream>
 	"List.h"
 
+1668169721 source:c:\codeblocks\files\polymorphism&inheritance\main.cpp
+	<iostream>
+	"Figures.h"
+	"List.h"
+	"Queue.h"
+	"Stack.h"
+
+1666956466 c:\codeblocks\files\polymorphism&inheritance\figures.h
+	<iostream>
+
+1668326948 c:\codeblocks\files\polymorphism&inheritance\list.h
+
+1668326955 c:\codeblocks\files\polymorphism&inheritance\queue.h
+	<iostream>
+	"List.h"
+
+1667033850 c:\codeblocks\files\polymorphism&inheritance\stack.h
+	<iostream>
+	"List.h"
+
+1666343514 source:c:\codeblocks\files\polymorphism&inheritance\queue.cpp
+
+1666343502 source:c:\codeblocks\files\polymorphism&inheritance\stack.cpp
+

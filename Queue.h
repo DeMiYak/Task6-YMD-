@@ -74,19 +74,12 @@ public:
         node *temp = front;
         T frontData = front->data;
         front = front->next;
+        if(!front) back = nullptr;
         delete temp;
         return frontData;
     }
 
-//    T Pop() const
-//    {
-//        if(!front) throw EMPTY;
-//        node *temp = front;
-//        T frontData = front->data;
-//        front = front->next;
-//        delete temp;
-//        return frontData;
-//    }
+//
 
     T GetFront()
     {
@@ -124,6 +117,7 @@ public:
 
     T& operator [] (size_t id)
     {
+        id -= 1;
         if(!front) throw EMPTY;
         if(id >= Size()) throw OUT_OF_RANGE;
         node *temp = front;
@@ -134,6 +128,7 @@ public:
 
     const T& operator [] (size_t id) const
     {
+        id -= 1;
         if(!front) throw EMPTY;
         if(id >= Size()) throw OUT_OF_RANGE;
         node *temp = front;
