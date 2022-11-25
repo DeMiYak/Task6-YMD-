@@ -88,12 +88,12 @@
 */
 
 #include<iostream>
+#include<algorithm>
 #include"Figures.h"
 #include"List.h"
 #include"Queue.h"
 #include"Stack.h"
 using namespace std;
-
 
 int main()
 {
@@ -110,9 +110,9 @@ int main()
 
 
         size_t p;
-        cout << "Choose the method:\n1. Push\n2. PopFront\n3. GetFront\n4. SetFront\n5. IsEmpty\n6. QuantifyQueue\n7. Print queue's element\n8. PrintQueue\n\n";
+        cout << "Choose the method:\n1. Push\n2. PopFront\n3. GetFront\n4. SetFront\n5. IsEmpty\n6. QuantifyQueue\n7. Print queue's element\n8. PrintQueue\n9. PrintQueue via Iterator\n\n";
         cin >> p;
-        while(1 <= p && p <= 8)
+        while(1 <= p && p <= 9)
         {
             switch(p)
             {
@@ -150,12 +150,15 @@ int main()
                 cout << q[id];
                 break;
             case 8:
+                q.Print();
+                break;
+            case 9:
                 cout << q;
                 break;
             default:
                 break;
             }
-            cout << "\nChoose the method:\n1. Push\n2. PopFront\n3. GetFront\n4. SetFront\n5. IsEmpty\n6. QuantifyQueue\n7. Print queue's element\n8. PrintQueue\n\n";
+            cout << "\nChoose the method:\n1. Push\n2. PopFront\n3. GetFront\n4. SetFront\n5. IsEmpty\n6. QuantifyQueue\n7. Print queue's element\n8. PrintQueue\n9. PrintQueue via Iterator\n\n";
             cin >> p;
         }
         queue<double> q2 = q;
@@ -167,7 +170,7 @@ int main()
 
 
         size_t p;
-        cout << "Choose the method:\n1. Push\n2. PopFront\n3. GetFront\n4. SetFront\n5. IsEmpty\n6. QuantifyStack\n7. Print stack's element\n8. PrintStack\n\n";
+        cout << "Choose the method:\n1. Push\n2. PopFront\n3. GetFront\n4. SetFront\n5. IsEmpty\n6. QuantifyStack\n7. Print stack's element\n8. PrintStack\n9. PrintStack via Iterator\n\n";
         cin >> p;
         while(1 <= p && p <= 9)
         {
@@ -205,11 +208,15 @@ int main()
                 cout << s[id];
                 break;
             case 8:
+                s.Print();
+                break;
+            case 9:
                 cout << s;
+                break;
             default:
                 break;
             }
-            cout << "\nChoose the method:\n1. Push\n2. PopFront\n3. GetFront\n4. SetFront\n5. IsEmpty\n6. QuantifyStack\n7. Print stack's element\n8. PrintStack\n\n";
+            cout << "\nChoose the method:\n1. Push\n2. PopFront\n3. GetFront\n4. SetFront\n5. IsEmpty\n6. QuantifyStack\n7. Print stack's element\n8. PrintStack\n9. PrintStack via Iterator\n\n";
             cin >> p;
         }
         stack<double> s2 = s;
