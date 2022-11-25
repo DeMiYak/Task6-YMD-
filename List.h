@@ -34,6 +34,14 @@ public:
     virtual bool IsEmpty() const = 0;
     virtual size_t Size() const = 0;
 
+    friend std::istream& operator >> (std::istream &stream, list<T> &l)
+    {
+        T data;
+        std::cin >> data;
+        l.Push(data);
+        return stream;
+    }
+
 protected:
     virtual void Print (std::ostream &stream) const = 0;
     friend std::ostream& operator << (std::ostream &stream, const list<T> &l)
@@ -48,14 +56,6 @@ protected:
         struct node *next;
         node(T _data, struct node *_next = nullptr) : data(_data), next(_next) {}
     };
-
-    friend std::istream& operator >> (std::istream &stream, list<T> &l)
-    {
-        T data;
-        std::cin >> data;
-        l.Push(data);
-        return stream;
-    }
 
 private:
 
