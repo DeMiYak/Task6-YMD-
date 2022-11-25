@@ -1,3 +1,0 @@
-* Используйте .gitignore чтобы убрать двоичные файлы и файлы типа .depend и .layout
-* friend operator << и >> в protected? не ошибка, т.к. protected/private применяется только к членам класса, но confusing
-* основные тесты пока проходит
