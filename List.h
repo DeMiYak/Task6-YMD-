@@ -37,9 +37,12 @@ class list
 {
 public:
 
+    typedef node<T> node;
+
     list() {}
     virtual ~list() {}
 
+    // List input/output operators
 
     friend std::istream& operator >> (std::istream &stream, list<T> &l)
     {
@@ -62,7 +65,7 @@ public:
     }
 
 
-
+    // List Iterators
 
     class const_iterator;
     class iterator
@@ -70,9 +73,9 @@ public:
     public:
         using iterator_category = std::forward_iterator_tag;
         using difference_type = std::ptrdiff_t;
-        using value_type = node<T>;
-        using pointer = node<T>*;
-        using reference = node<T>&;
+        using value_type = node;
+        using pointer = node*;
+        using reference = node&;
 
         iterator(pointer _ptr = nullptr): ptr(_ptr) {}
 
@@ -105,9 +108,9 @@ public:
     public:
         using iterator_category = std::forward_iterator_tag;
         using difference_type = std::ptrdiff_t;
-        using value_type = node<T>;
-        using pointer = const node<T>*;
-        using reference = const node<T>&;
+        using value_type = node;
+        using pointer = const node*;
+        using reference = const node&;
 
         const_iterator(pointer _ptr = nullptr): ptr(_ptr) {}
         const_iterator(const iterator& i2): ptr(i2.ptr) {}
@@ -155,7 +158,7 @@ public:
 
 protected:
     // virtual void Print (std::ostream &stream) const = 0;
-    node<T>* lastFront = nullptr;
+    node* lastFront = nullptr;
 
 private:
 
