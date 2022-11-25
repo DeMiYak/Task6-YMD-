@@ -93,6 +93,13 @@ public:
         return front->data;
     }
 
+    void SetFront() const
+    {
+        T data;
+        std::cin >> data;
+        front->data = data;
+    }
+
     bool IsEmpty() const {return front == nullptr;}
 
 

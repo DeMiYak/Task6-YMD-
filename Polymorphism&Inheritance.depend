@@ -23,7 +23,7 @@
 	<iostream>
 	"List.h"
 
-1668169721 source:c:\codeblocks\files\polymorphism&inheritance\main.cpp
+1668850326 source:c:\codeblocks\files\polymorphism&inheritance\main.cpp
 	<iostream>
 	"Figures.h"
 	"List.h"
@@ -35,11 +35,11 @@
 
 1668326948 c:\codeblocks\files\polymorphism&inheritance\list.h
 
-1668326955 c:\codeblocks\files\polymorphism&inheritance\queue.h
+1669374533 c:\codeblocks\files\polymorphism&inheritance\queue.h
 	<iostream>
 	"List.h"
 
-1667033850 c:\codeblocks\files\polymorphism&inheritance\stack.h
+1669374503 c:\codeblocks\files\polymorphism&inheritance\stack.h
 	<iostream>
 	"List.h"
 

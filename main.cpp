@@ -134,6 +134,8 @@ int main()
                 cout << "Get: " << key;
                 break;
             case 4:
+                q.SetFront();
+                cout << q;
                 break;
             case 5:
                 cout << "Is Empty: " << q.IsEmpty();
@@ -213,6 +215,6 @@ int main()
         stack<double> s2 = s;
         cout << s2;
     } else {cout << "Wrong number. Finishing programme...";}
-    cout << "\n... Memory cleared";
+    // cout << "\n... Memory cleared";
     return 0;
 }

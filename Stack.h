@@ -80,6 +80,14 @@ public:
         return temp->data;
     }
 
+
+    void SetFront() const
+    {
+            T data;
+            std::cin >> data;
+            last->data = data;
+    }
+
     bool IsEmpty() const {return last == nullptr;}
 
     size_t Size() const
