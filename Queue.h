@@ -2,12 +2,22 @@
 #define QUEUE_H_INCLUDED
 
 #include<iostream>
+#include<algorithm>
 #include"List.h"
 
 template<class T>
 class queue : public list<T>
 {
 public:
+
+    // Iterator Methods
+
+    typedef typename list<T>::iterator iterator;
+    typedef typename list<T>::const_iterator const_iterator;
+
+    iterator begin() {return iterator(front);}
+    const_iterator begin() const {return const_iterator(front);}
+    const_iterator cbegin() const {return const_iterator(front);}
 
     // Queue Constructors
 
@@ -39,6 +49,27 @@ public:
         return *this;
     }
 
+      T& operator [] (size_t id)
+    {
+        id -= 1;
+        if(!front) throw EMPTY;
+        if(id >= Size()) throw OUT_OF_RANGE;
+        node *temp = front;
+        for(; id; id--)
+            temp = temp->next;
+        return temp->data;
+    }
+
+    const T& operator [] (size_t id) const
+    {
+        id -= 1;
+        if(!front) throw EMPTY;
+        if(id >= Size()) throw OUT_OF_RANGE;
+        node *temp = front;
+        for(; id; id--)
+            temp = temp->next;
+        return temp->data;
+    }
 
 
     // Queue Destructor
@@ -105,6 +136,19 @@ public:
 
     // Print Method
 
+    virtual void Print() const
+    {
+        node *temp = front;
+        std::cout << '[';
+        while(temp)
+        {
+            if(temp != front) {std::cout << ", ";}
+            std::cout << temp->data;
+            temp = temp->next;
+        }
+        std::cout << ']' << '\n';
+    }
+
     // Quantity Method
 
     size_t Size() const
@@ -122,44 +166,23 @@ public:
         } else return 0;
     }
 
-    T& operator [] (size_t id)
-    {
-        id -= 1;
-        if(!front) throw EMPTY;
-        if(id >= Size()) throw OUT_OF_RANGE;
-        node *temp = front;
-        for(; id; id--)
-            temp = temp->next;
-        return temp->data;
-    }
-
-    const T& operator [] (size_t id) const
-    {
-        id -= 1;
-        if(!front) throw EMPTY;
-        if(id >= Size()) throw OUT_OF_RANGE;
-        node *temp = front;
-        for(; id; id--)
-            temp = temp->next;
-        return temp->data;
-    }
-
 protected:
-    typedef typename list<T>::node node;
+    typedef node<T> node;
     node *front = nullptr, *back = nullptr;
 
-    virtual void Print(std::ostream &stream) const
-    {
-        node *temp = front;
-        stream << '[';
-        while(temp)
-        {
-            if(temp != front) {std::cout << ", ";}
-            stream << temp->data;
-            temp = temp->next;
-        }
-        stream << ']' << '\n';
-    }
+//    virtual void Print(std::ostream &stream) const
+//    {
+//        node *temp = front;
+//        stream << '[';
+//        while(temp)
+//        {
+//            if(temp != front) {std::cout << ", ";}
+//            stream << temp->data;
+//            temp = temp->next;
+//        }
+//        stream << ']' << '\n';
+//    }
+
 private:
 
     void queueCopy(const queue<T> &q)

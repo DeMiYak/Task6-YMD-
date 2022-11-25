@@ -2,12 +2,24 @@
 #define STACK_H_INCLUDED
 
 #include<iostream>
+#include<algorithm>
 #include"List.h"
 
 template<class T>
 class stack : public list<T>
 {
 public:
+
+    // Iterator Methods
+
+    typedef typename list<T>::iterator iterator;
+    typedef typename list<T>::const_iterator const_iterator;
+
+    iterator begin() {return iterator(last);}
+    const_iterator begin() const {return const_iterator(last);}
+    const_iterator cbegin() const {return const_iterator(last);}
+
+    // Stack Constructors
 
     stack(): last(nullptr) {}
 
@@ -17,7 +29,7 @@ public:
 
 
 
-
+    // Stack Operators
 
     stack<T> &operator = (const stack<T> &s)
     {
@@ -40,6 +52,34 @@ public:
     }
 
 
+    T& operator [] (size_t id)
+    {
+        if(!last) throw EMPTY;
+        size_t j = Size();
+        if(id >= j) throw OUT_OF_RANGE;
+        size_t idNew = j - id - 1;
+        node *temp = last;
+        for(; idNew; idNew--)
+        {
+            temp = temp->next;
+        }
+        return temp->data;
+    }
+
+    const T& operator [] (size_t id) const
+    {
+        if(!last) throw EMPTY;
+        size_t j = Size();
+        if(id >= j) throw OUT_OF_RANGE;
+        size_t idNew = j - id - 1;
+        node *temp = last;
+        for(; idNew; idNew--)
+        {
+            temp = temp->next;
+        }
+        return temp->data;
+    }
+    // Stack Destructor
 
     ~stack() {del();}
 
@@ -49,7 +89,7 @@ public:
     enum ERR_CODE {EMPTY, OUT_OF_RANGE};
 
 
-
+    // Stack Methods
 
     virtual void Push(T data) {last = new node(data, last);}
 
@@ -105,86 +145,37 @@ public:
         } else return 0;
     }
 
-    T& operator [] (size_t id)
-    {
-        if(!last) throw EMPTY;
-        size_t j = Size();
-        if(id >= j) throw OUT_OF_RANGE;
-        size_t idNew = j - id - 1;
-        node *temp = last;
-        for(; idNew; idNew--)
-        {
-            temp = temp->next;
-        }
-        return temp->data;
-    }
+    // Print Method
 
-    const T& operator [] (size_t id) const
-    {
-        if(!last) throw EMPTY;
-        size_t j = Size();
-        if(id >= j) throw OUT_OF_RANGE;
-        size_t idNew = j - id - 1;
-        node *temp = last;
-        for(; idNew; idNew--)
-        {
-            temp = temp->next;
-        }
-        return temp->data;
-    }
-//    stack operator + (const stack &s1, const stack &s2)
-//    {
-//        s1Temp = s1.stackCopy();
-//        s2Temp = s2.stackCopy();
-//        node<T> *temp = s2Temp.Front();
-//        temp->next = s1.last;
-//
-//        return s2;
-//    }
-
-protected:
-    typedef typename list<T>::node node;
-    node *last = nullptr;
-
-    virtual void Print(std::ostream &stream) const
+    virtual void Print() const
     {
         node *temp = last;
         while(temp)
         {
-            stream << temp->data;
-            if(temp->next) stream << "->";
+            std::cout << temp->data;
+            if(temp->next) std::cout << "->";
             temp = temp->next;
         }
-        stream << '\n';
+        std::cout << '\n';
     }
-private:
-//    void stackCopy(const stack &s)
+
+protected:
+    typedef node<T> node;
+    node *last = nullptr;
+
+//     virtual void Print(std::ostream &stream) const
 //    {
-//        node *temp = s.last;
+//        node *temp = last;
 //        while(temp)
 //        {
-//            Push(temp->data);
+//            stream << temp->data;
+//            if(temp->next) stream << "->";
 //            temp = temp->next;
 //        }
-//
-//        node *tempNew = last;
-//        temp = last->next; // Работает, так как по начальным данным last, next = nullptr.
-//
-//        if(temp == nullptr) return;
-//
-//        last->next = nullptr;
-//        while(temp->next)
-//        {
-//            tempNew = temp;
-//            temp = temp->next;
-//            tempNew->next = last;
-//            last = tempNew;
-//        }
-//        temp->next = last;
-//        last = temp;
+//        stream << '\n';
 //    }
-//
-//     За один проход (здесь два)
+
+private:
 
     void stackCopy(const stack &s)
     {
