@@ -1,3 +1,27 @@
 * Используйте .gitignore чтобы убрать двоичные файлы и файлы типа .depend и .layout
 * friend operator << и >> в protected? не ошибка, т.к. protected/private применяется только к членам класса, но confusing
 * основные тесты пока проходит
+
+
+01.12
+* Хорошо бы иметь сравнение const и не-const итераторов
+* Итераторы не выделяют память динамически, поэтому для них создание конструкторов копирования/перемещения не требуется, автоматические будут работать
+* Тесты на итераторы добавлю позже
+* У меня компилятор выдает такую ошибку:
+
+List.h:40:21: ошибка: declaration of «typedef struct node<T> list<T>::node» changes meaning of «node» [-fpermissive]
+   40 |     typedef node<T> node;
+      |                     ^~~~
+List.h:26:8: замечание: «node» declared here as «struct node<T>»
+   26 | struct node
+      |        ^~~~
+Queue.h:170:21: ошибка: declaration of «typedef struct node<T> queue<T>::node» changes meaning of «node» [-fpermissive]
+  170 |     typedef node<T> node;
+      |                     ^~~~
+List.h:26:8: замечание: «node» declared here as «struct node<T>»
+   26 | struct node
+      |        ^~~~
+
+Надо бы разобраться. При соответствующем исправлении основные тесты проходит.
+
+
