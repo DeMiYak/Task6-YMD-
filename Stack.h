@@ -16,8 +16,13 @@ public:
     typedef typename list<T>::const_iterator const_iterator;
 
     iterator begin() {return iterator(last);}
+    iterator end() {return iterator(nullptr);}
+
     const_iterator begin() const {return const_iterator(last);}
+    const_iterator end() const {return const_iterator(nullptr);}
+
     const_iterator cbegin() const {return const_iterator(last);}
+    const_iterator cend() const {return const_iterator(nullptr);}
 
     // Stack Constructors
 
@@ -160,7 +165,7 @@ public:
     }
 
 protected:
-    typedef node<T> node;
+    typedef struct node<T> node;
     node *last = nullptr;
 
 //     virtual void Print(std::ostream &stream) const

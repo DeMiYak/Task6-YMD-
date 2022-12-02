@@ -26,7 +26,7 @@ template<class T>
 struct node
     {
         T data;
-        struct node *next;
+        struct node<T> *next;
         node(T _data, struct node *_next = nullptr) : data(_data), next(_next) {}
     };
 
@@ -37,7 +37,7 @@ class list
 {
 public:
 
-    typedef node<T> node;
+    typedef struct node<T> node;
 
     list() {}
     virtual ~list() {}
@@ -58,9 +58,9 @@ public:
     {
         for (const auto& node: l)
         {
-            stream << node.data << ' ';
+            stream << node.data << '\t' << &(node.data) << '\n';
         };
-        stream << '\n';
+        stream << '\n' << '\n' << std::endl;
         return stream;
     }
 
@@ -93,12 +93,15 @@ public:
         bool operator == (const iterator& i2) {return ptr == i2.ptr;}
         bool operator != (const iterator& i2) {return ptr != i2.ptr;}
 
+        bool operator <= (const iterator& i2) {return ptr <= i2.ptr;}
+        bool operator >= (const iterator& i2) {return ptr >= i2.ptr;}
+
+        bool operator < (const iterator& i2) {return ptr < i2.ptr;}
+        bool operator > (const iterator& i2) {return ptr > i2.ptr;}
+
+
         friend const_iterator;
     private:
-
-        bool operator <= (const iterator& i2) = delete;
-        bool operator >= (const iterator& i2) = delete;
-
         pointer ptr;
 
     };
@@ -113,7 +116,6 @@ public:
         using reference = const node&;
 
         const_iterator(pointer _ptr = nullptr): ptr(_ptr) {}
-        const_iterator(const iterator& i2): ptr(i2.ptr) {}
 
         reference operator *() const {return *(ptr->data);}
         pointer operator ->() const {return ptr->data;}
@@ -126,15 +128,16 @@ public:
             return *this;
         }
 
-        bool operator == (const const_iterator &i2) const {return ptr == i2.ptr;}
-        bool operator != (const const_iterator &i2) const {return ptr != i2.ptr;}
+        bool operator == (const const_iterator&i2) const {return ptr == i2.ptr;}
+        bool operator != (const const_iterator& i2) const {return ptr != i2.ptr;}
 
+        bool operator <= (const const_iterator& i2) const {return ptr <= i2.ptr;}
+        bool operator >= (const const_iterator& i2) const {return ptr >= i2.ptr;}
+
+        bool operator < (const const_iterator& i2) const {return ptr < i2.ptr;}
+        bool operator > (const const_iterator& i2) const {return ptr > i2.ptr;}
 
     private:
-
-        const_iterator(const iterator&& i2) = delete;
-        bool operator <= (const const_iterator &i2) const = delete;
-        bool operator >= (const const_iterator &i2) const = delete;
 
         pointer ptr;
 
@@ -149,8 +152,10 @@ public:
 
     virtual iterator begin() {return iterator(lastFront);}
     virtual iterator end() {return iterator(nullptr);}
+
     virtual const_iterator begin() const {return const_iterator(lastFront);}
     virtual const_iterator end() const {return const_iterator(nullptr);}
+
     virtual const_iterator cbegin() const {return const_iterator(lastFront);}
     virtual const_iterator cend() const {return const_iterator(nullptr);}
 

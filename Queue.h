@@ -16,8 +16,14 @@ public:
     typedef typename list<T>::const_iterator const_iterator;
 
     iterator begin() {return iterator(front);}
+    iterator end() {return iterator(nullptr);}
+
     const_iterator begin() const {return const_iterator(front);}
+    const_iterator end() const {return const_iterator(nullptr);}
+
     const_iterator cbegin() const {return const_iterator(front);}
+    const_iterator cend() const {return const_iterator(nullptr);}
+
 
     // Queue Constructors
 
@@ -167,7 +173,7 @@ public:
     }
 
 protected:
-    typedef node<T> node;
+    typedef struct node<T> node;
     node *front = nullptr, *back = nullptr;
 
 //    virtual void Print(std::ostream &stream) const
