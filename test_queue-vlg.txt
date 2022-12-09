@@ -1,32 +1,66 @@
-==158499== Memcheck, a memory error detector
-==158499== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==158499== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
-==158499== Command: ./test_queue
-==158499== 
-1 2 3 
+==145808== Memcheck, a memory error detector
+==145808== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==145808== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
+==145808== Command: ./test_queue
+==145808== 
+1	0x4debc80
+2	0x4debcd0
+3	0x4debd20
+
+
+
 
 3
-2 3 4 5 
+2	0x4debcd0
+3	0x4debd20
+4	0x4decea0
+5	0x4decef0
+
+
+
 
 4
-2 3 6 
+2	0x4dece00
+3	0x4dece50
+6	0x4decf40
+
+
+
 
 3
-3 4 5 7 8 
+3	0x4debd20
+4	0x4decea0
+5	0x4decef0
+7	0x4ded0d0
+8	0x4ded120
+
+
+
 
 5
-2 3 6 
+2	0x4dece00
+3	0x4dece50
+6	0x4decf40
+
+
+
 
 3
-3 4 5 9 
+3	0x4decfe0
+4	0x4ded030
+5	0x4ded080
+9	0x4ded170
+
+
+
 
 4
-==158499== 
-==158499== HEAP SUMMARY:
-==158499==     in use at exit: 0 bytes in 0 blocks
-==158499==   total heap usage: 18 allocs, 18 frees, 77,056 bytes allocated
-==158499== 
-==158499== All heap blocks were freed -- no leaks are possible
-==158499== 
-==158499== For lists of detected and suppressed errors, rerun with: -s
-==158499== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==145808== 
+==145808== HEAP SUMMARY:
+==145808==     in use at exit: 0 bytes in 0 blocks
+==145808==   total heap usage: 18 allocs, 18 frees, 77,056 bytes allocated
+==145808== 
+==145808== All heap blocks were freed -- no leaks are possible
+==145808== 
+==145808== For lists of detected and suppressed errors, rerun with: -s
+==145808== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
