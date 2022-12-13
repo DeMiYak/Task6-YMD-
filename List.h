@@ -22,6 +22,12 @@
 #include<iostream>
 #include<algorithm>
 
+//
+//09.12
+//
+//* Ошибок в выводе тестов, конечно, нет, но явные значения указателей хороши для отладки, а не для пользователей
+//* Итератор разыменовыевается в Node, а не в T - это не хорошо, т.к. Node - внутреннее дело контейнера, а работа идет с элементами
+
 template<class T>
 struct node
     {
@@ -58,7 +64,7 @@ public:
     {
         for (const auto& node: l)
         {
-            stream << node.data << '\t' << &(node.data) << '\n';
+            stream << node << '\t' << &(node) << '\n';
         };
         stream << '\n' << '\n' << std::endl;
         return stream;
@@ -73,13 +79,13 @@ public:
     public:
         using iterator_category = std::forward_iterator_tag;
         using difference_type = std::ptrdiff_t;
-        using value_type = node;
+        using value_type = T;
         using pointer = node*;
-        using reference = node&;
+        using reference = T&;
 
         iterator(pointer _ptr = nullptr): ptr(_ptr) {}
 
-        reference operator *() const {return *ptr;}
+        reference operator *() const {return ptr->data;}
         pointer operator ->() const {return ptr;}
 
         iterator &operator ++() {ptr = ptr->next; return *this;}
@@ -111,14 +117,14 @@ public:
     public:
         using iterator_category = std::forward_iterator_tag;
         using difference_type = std::ptrdiff_t;
-        using value_type = node;
+        using value_type = T;
         using pointer = const node*;
-        using reference = const node&;
+        using reference = const T&;
 
         const_iterator(pointer _ptr = nullptr): ptr(_ptr) {}
 
-        reference operator *() const {return *(ptr->data);}
-        pointer operator ->() const {return ptr->data;}
+        reference operator *() const {return ptr->data;}
+        pointer operator ->() const {return ptr;}
 
         const_iterator &operator ++() {ptr = ptr->next; return *this;}
         const_iterator operator ++(int)

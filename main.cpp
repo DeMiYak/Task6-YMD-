@@ -95,6 +95,7 @@
 #include"Stack.h"
 using namespace std;
 
+
 int main()
 {
 
@@ -194,6 +195,8 @@ int main()
                 cout << "Get: " << key;
                 break;
             case 4:
+                s.SetFront();
+                cout << s;
                 break;
             case 5:
                 cout << "Is Empty: " << s.IsEmpty();
@@ -225,5 +228,6 @@ int main()
     // cout << "\n... Memory cleared";
     return 0;
 }
+
 
 
