@@ -1,5 +1,5 @@
-test_stack
-test_queue
+test*_stack
+test*_queue
 
 ##### Windows
 # Windows thumbnail cache files
